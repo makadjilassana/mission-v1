@@ -1,1 +1,44 @@
-<app-commande-create></app-commande-create>
+<header>
+  <img src="../assets/logoUIR.jpeg" alt="MDN logo">
+</header>
+
+<br/><br/><br/>
+
+  <app-commande-create></app-commande-create>
+
+<br/><br/><br/>
+
+<div class="row">
+
+  <div class="col-sm-8">
+
+    <div class="card">
+      <div class="card-header">Creation de Commande</div>
+      <div class="card-body">
+
+        <div class="form-group">
+          <label>Reference</label>
+          <input type="text" id="reference" [(ngModel)]="commande.reference" class="form-control"/>
+        </div>
+        <div class="form-group">
+          <label>Total</label>
+          <input type="number" id="total" [(ngModel)]="commande.total" class="form-control"/>
+        </div>
+        <div class="form-group">
+          <label>Total Paiement</label>
+          <input type="number" id="totalPaiement" [(ngModel)]="commande.totalPaiement" class="form-control"/>
+        </div>
+
+        <div class="form-group">
+          <button class="btn btn-primary" *ngIf="commande.total>=commande.totalPaiement" (click)="saveCommande()">Ajouter commande</button>
+        </div>
+
+      </div>
+    </div>
+
+
+  </div>
+
+</div>
+
+

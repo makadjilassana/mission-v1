@@ -33,4 +33,12 @@ export class CommandeCreateComponent implements OnInit {
     return this.commandeService.getListeCommandes;
   }
 
+  public  livrerCommande(reference: string){
+    return this.commandeService.livrerCommande(reference);
+  }
+
+  public payer(reference: string){
+    return this.commandeService.payer(reference);
+  }
+
 }
