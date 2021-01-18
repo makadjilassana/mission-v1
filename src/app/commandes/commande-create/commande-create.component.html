@@ -2,54 +2,6 @@
 
 <div class="row">
 
-  <div class="col-sm-6">
-
-    <div class="card">
-      <div class="card-header">Creation de Commande</div>
-      <div class="card-body">
-
-        <div class="form-group">
-          <label>Reference</label>
-          <input type="text" [(ngModel)]="commande.reference" class="form-control"/>
-        </div>
-        <div class="form-group">
-          <label>Total Paiement</label>
-          <input type="text" [(ngModel)]="commande.totalPaiement" class="form-control"/>
-        </div>
-        <div class="form-group">
-          <label>Total</label>
-          <input type="text" [(ngModel)]="commande.total" class="form-control"/>
-        </div>
-        <div class="form-group">
-          <button class="btn btn-primary" (click)="saveCommande()">Ajouter commande</button>
-        </div>
-
-      </div>
-    </div>
-
-
-    <div class="card">
-      <div class="card-header">Suppression de Commande</div>
-      <div class="card-body">
-
-        <div class="form-group">
-          <label>Reference</label>
-          <input type="text"  [(ngModel)]="commande.reference" class="form-control"/>
-        </div>
-        <div class="form-group">
-          <button class="btn btn-danger" (click)="deleteCommande(commande.reference)">Supprimer commande</button>
-        </div>
-
-      </div>
-    </div>
-
-
-
-  </div>
-
-  <div class="col-sm-6">
-
-
     <div class="card">
       <div class="card-header">Liste des Commandes</div>
       <div class="card-body">
@@ -58,30 +10,60 @@
           <thead>
 
           <th>reference</th>
-          <th>Total Paiement</th>
           <th>Total</th>
+          <th>Total Paiement</th>
+          <th>Reste à payer</th>
+          <th>livraison</th>
           <th>Action</th>
 
           </thead>
 
           <tbody>
           <tr *ngFor="let commandeSelect of listeCommandes">
+
             <td>{{commandeSelect.reference}}</td>
-            <td>{{commandeSelect.totalPaiement}}</td>
             <td>{{commandeSelect.total}}</td>
-            <td><button class="btn btn-outline-dark fa fa-plus" title="Consulter"></button>&nbsp;
-            <button class="btn btn-outline-dark fa fa-pencil" title="Modifier"></button>&nbsp;
-            <button class="btn btn-outline-dark fa fa-trash" title="Supprimer" (click)="deleteCommande(commandeSelect.reference)"></button></td>
+            <td>{{commandeSelect.totalPaiement}}</td>
+            <td>{{commandeSelect.resteApayer}}</td>
+
+            <div *ngIf="commandeSelect.livraison==false">
+              <td>Non effectuée</td>
+            </div>
+
+            <div *ngIf="commandeSelect.livraison==true">
+              <td>effectuée</td>
+            </div>
+
+             <td><!--<button class="btn btn-outline-dark fa fa-plus" title="Consulter"></button>&nbsp; -->
+              <button class="btn btn-outline-dark fa fa-shopping-cart" title="livrer" (click)="livrerCommande(commandeSelect.reference)"></button>&nbsp;
+              <button class="btn btn-outline-dark fa fa-trash" title="Annuler/Supprimer" (click)="deleteCommande(commandeSelect.reference)"></button></td>
           </tr>
           </tbody>
 
         </table>
 
       </div>
-    </div>
+    </div>&nbsp;&nbsp;
+
+
+  <div class="card">
+    <div class="card-header">Paiement</div>
+    <div class="card-body">
+
+      <div class="form-group">
+        <label>Reference [Commande]</label>
+        <input type="text"  [(ngModel)]="commande.reference" class="form-control"/>
+      </div>
+
+      <div class="form-group" align="center">
+        <button class="btn btn-success" (click)="payer(commande.reference)">Valider</button>
+      </div>
 
     </div>
 
   </div>
+
+
+</div>
 
 

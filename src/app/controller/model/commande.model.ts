@@ -1,4 +1,3 @@
 export class Commande {
-
-   constructor(public reference: string, public totalPaiement: string, public total: string){}
+   constructor(public reference: string, public totalPaiement: number, public total: number, public livraison: string, public resteApayer: number){}
 }

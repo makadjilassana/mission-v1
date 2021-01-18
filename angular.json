@@ -123,6 +123,10 @@
   },
   "defaultProject": "mission-v1",
   "cli": {
+<<<<<<< HEAD
     "analytics": "cf3824b9-ac59-4126-87d4-d8a402a29547"
+=======
+    "analytics": "1fded22a-299c-4c6b-9068-86cc11283b02"
+>>>>>>> 852eaab2ea5af25ae6729972ef1af7b85340ceb0
   }
 }
