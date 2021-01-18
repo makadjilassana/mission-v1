@@ -26,9 +26,7 @@
             "styles": [
               "src/styles.css"
             ],
-            "scripts": [
-              
-            ]
+            "scripts": []
           },
           "configurations": {
             "production": {
@@ -121,6 +119,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "mission-v1"
+    }
+  },
+  "defaultProject": "mission-v1",
+  "cli": {
+    "analytics": "cf3824b9-ac59-4126-87d4-d8a402a29547"
+  }
 }
